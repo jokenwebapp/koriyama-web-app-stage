@@ -11,9 +11,7 @@ import { fetchBlog } from '@/utils/fetchMethods';
 import { dummyBlogs } from '@/const/dummyblogs';
 import BackTop from '@/components/BackTop';
 import SlideShow from '@/components/blogs/SlideShow';
-
-const isUseAPI: boolean = true; /* APIを使用するか */
-/* 注意：APIサーバは通信料金がかかるため、現在停止中。APIを使わずにブログを表示する場合は、isUseAPIをfalseにしてください */
+import { isUseAPIBlog } from '@/const/const';
 
 const Inter_600 = Inter({ preload: false, weight: ['600'] });
 const Inter_400 = Inter({ preload: false, weight: ['400'] });
@@ -23,9 +21,13 @@ function Home({ params }: { params: { place_id: string } }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    //ブログidをurlから取得し、指定IDのブログをフェッチ
     if (params.place_id && typeof params.place_id === 'string') {
-      if (isUseAPI) {
+      /* 注意：APIサーバは通信料金がかかるため、現在停止中。
+        APIを使わずにブログを表示する場合は、
+        frontendディレクトリ上で「cp .env.example .env」を実行し、
+        .envファイルのNEXT_PUBLIC_IS_USE_API_BLOGを"True"から"False"にしてください */
+      //ブログidをurlから取得し、指定IDのブログをフェッチ
+      if (isUseAPIBlog) {
         fetchBlog(params.place_id)
           .then((data) => {
             setBlog(data);
