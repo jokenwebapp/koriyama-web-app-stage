@@ -1,0 +1,31 @@
+.stampboard {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  background-color: white;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  place-content: center;
+  place-items: center;
+}
+
+.stampboard_panel {
+  background: #fff;
+  border: 1px dotted #999;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-wrap: balance;
+
+  p {
+    margin: 7px 7px;
+  }
+}
