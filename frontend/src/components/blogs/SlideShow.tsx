@@ -11,11 +11,11 @@ interface SlideShowProps {
 export default function SlideShow(props: SlideShowProps) {
   const settings = {
     infinite: true,
-    speed: 2000,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     fade: true,
     waitForAnimate: false,
   };
@@ -30,7 +30,7 @@ export default function SlideShow(props: SlideShowProps) {
               alt={`Slide ${index}`}
               width={300}
               height={200}
-              style={{ width: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%' }}
             />
           </div>
         ))}
